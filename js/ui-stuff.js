@@ -1,6 +1,6 @@
-function set_cart_total_dom() {
+function set_cart_total_dom(total) {
     var element = document.getElementById("shoppingCartTotal")
-    element.innerText = shopping_cart_total;
+    element.innerText = total;
 }
 
 function get_buy_buttons_dom() {
