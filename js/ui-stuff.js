@@ -30,7 +30,7 @@ function update_shipping_icons() {
     for (let i = 0; i < buy_buttons.length; i++) {
         var button = buy_buttons[i];
         var item = btnToItem(button);
-        if (item.price + shopping_cart_total >= 20) {
+        if (item.price + shopping_cart_total >= 20) { // <- this is business logic!
             show_free_shipping_icon(button);
         } else {
             hide_free_shipping_icon(button);
