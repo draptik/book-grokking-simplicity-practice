@@ -2,11 +2,15 @@ var shopping_cart = [];
 var shopping_cart_total = 0;
 
 function add_item_to_cart(name, price) {
+    add_item(name, price);
+    calc_cart_total();
+}
+
+function add_item(name, price) {
     shopping_cart.push({
         name: name,
         price: price
     });
-    calc_cart_total();
 }
 
 function calc_cart_total() {
