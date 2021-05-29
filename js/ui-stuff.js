@@ -25,19 +25,6 @@ function hide_free_shipping_icon(button) {
     freeShipping.style.display = 'none';
 }
 
-function update_shipping_icons() {
-    var buy_buttons = get_buy_buttons_dom();
-    for (let i = 0; i < buy_buttons.length; i++) {
-        var button = buy_buttons[i];
-        var item = btnToItem(button);
-        if (item.price + shopping_cart_total >= 20) { // <- this is business logic!
-            show_free_shipping_icon(button);
-        } else {
-            hide_free_shipping_icon(button);
-        }
-    }
-}
-
 function set_tax_dom(tax) {
     // nop
 }
