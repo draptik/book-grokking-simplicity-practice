@@ -52,7 +52,7 @@ function btnToItem(btn) {
 
 function show_free_shipping_icon(button) {
     var freeShipping = button.querySelector('.freeShipping')
-    freeShipping.style.display = '';
+    freeShipping.style.display = 'inline-block';
 }
 
 function hide_free_shipping_icon(button) {
