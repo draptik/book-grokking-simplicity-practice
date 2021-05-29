@@ -10,16 +10,16 @@ function add_item_to_cart(name, price) {
 }
 
 function calc_cart_total() {
-    shopping_cart_total = calc_total();
+    shopping_cart_total = calc_total(shopping_cart);
     set_cart_total_dom();
     update_shipping_icons();
     update_tax_dom();
 }
 
-function calc_total() {
+function calc_total(cart) {
     var total = 0;
-    for (let i = 0; i < shopping_cart.length; i++) {
-        var item = shopping_cart[i];
+    for (let i = 0; i < cart.length; i++) {
+        var item = cart[i];
         total += item.price;
     }
     return total;
