@@ -9,8 +9,10 @@ function get_buy_buttons_dom() {
 }
 
 function btnToItem(btn) {
+    var productName = btn.querySelector('.productName').innerText
     var productPrice = parseInt(btn.querySelector('.productPrice').innerText);
     return {
+        name: productName,
         price: productPrice
     };
 }

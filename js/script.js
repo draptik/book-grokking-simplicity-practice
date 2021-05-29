@@ -26,7 +26,7 @@ function calc_total(cart) {
     var total = 0;
     for (let i = 0; i < cart.length; i++) {
         var item = cart[i];
-        total += item.price; // "item_price + total"
+        total += item.price;
     }
     return total;
 }
@@ -44,7 +44,10 @@ function update_shipping_icons() {
     for (let i = 0; i < buy_buttons.length; i++) {
         var button = buy_buttons[i];
         var item = btnToItem(button);
-        if (gets_free_shipping(shopping_cart_total, item.price)) {
+
+        var new_cart = add_item(shopping_cart, item.name, item.price); // !!
+
+        if (gets_free_shipping(new_cart)) {
             show_free_shipping_icon(button);
         } else {
             hide_free_shipping_icon(button);
@@ -52,6 +55,6 @@ function update_shipping_icons() {
     }
 }
 
-function gets_free_shipping(total, item_price) {
-    return item_price + total >= 20; // "item_price + total"
+function gets_free_shipping(cart) {
+    return calc_total(cart) >= 20;
 }
