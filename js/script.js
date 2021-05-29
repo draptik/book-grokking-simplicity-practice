@@ -2,12 +2,12 @@ var shopping_cart = [];
 var shopping_cart_total = 0;
 
 function add_item_to_cart(name, price) {
-    add_item(name, price);
+    add_item(shopping_cart, name, price);
     calc_cart_total();
 }
 
-function add_item(name, price) {
-    shopping_cart.push({
+function add_item(cart, name, price) {
+    cart.push({
         name: name,
         price: price
     });
