@@ -18,3 +18,7 @@ function calc_cart_total() {
     set_cart_total_dom();
     update_shipping_icons();
 }
+
+function update_tax_dom() {
+    set_tax_dom(shopping_cart_total * 0.10);
+}

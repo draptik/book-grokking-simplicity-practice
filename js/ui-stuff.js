@@ -37,3 +37,7 @@ function update_shipping_icons() {
         }
     }
 }
+
+function set_tax_dom(tax) {
+    // nop
+}
