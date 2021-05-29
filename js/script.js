@@ -32,5 +32,9 @@ function calc_total(cart) {
 }
 
 function update_tax_dom() {
-    set_tax_dom(shopping_cart_total * 0.10);
+    set_tax_dom(calc_tax());
+}
+
+function calc_tax() {
+    return shopping_cart_total * 0.10;
 }
