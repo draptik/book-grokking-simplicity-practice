@@ -7,16 +7,19 @@
 </head>
 <body>
     <h1>MegaMart</h1>
-    <div>Current total: $<span id="shopping_cart_total">0</span></div>
+    <div>Current total: $<span id="shoppingCartTotal">0</span></div>
     
     <ul>
         <li>
-            <div>product 1</div>
-            <div>$6</div>
-            <div>
-                <button type="button" 
-                    onclick="add_item_to_cart('product 1', 6)">Click me
-                </button>
+            <div class="btnItem">
+                <div class="productName">product 1</div>
+                <div class="productPrice">6</div>
+                <div>
+                    <button type="button" 
+                        onclick="add_item_to_cart('product 1', 6)">Click me
+                    </button>
+                    <div class="freeShipping" style="display: none">Free</div>
+                </div>
             </div>
         </li>
     </ul>
