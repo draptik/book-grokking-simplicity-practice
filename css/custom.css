@@ -1,0 +1,20 @@
+#shoppingCartTotal::after,
+.productPrice::after {
+    content: "€";
+    padding-left: 1ex;
+}
+
+.freeShipping {
+    background-color: aqua;
+}
+
+.btnItem,
+.btInner {
+    display: flex;
+}
+
+.productPrice,
+.btnInner,
+.freeShipping {
+    padding-left: 5px;
+}
