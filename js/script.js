@@ -44,7 +44,7 @@ function update_shipping_icons() {
     for (let i = 0; i < buy_buttons.length; i++) {
         var button = buy_buttons[i];
         var item = btnToItem(button);
-        if (gets_free_shipping(item.price)) { // <- this is business logic!
+        if (gets_free_shipping(shopping_cart_total, item.price)) {
             show_free_shipping_icon(button);
         } else {
             hide_free_shipping_icon(button);
@@ -52,6 +52,6 @@ function update_shipping_icons() {
     }
 }
 
-function gets_free_shipping(item_price) {
-    return item_price + shopping_cart_total >= 20;
+function gets_free_shipping(total, item_price) {
+    return item_price + total >= 20;
 }
