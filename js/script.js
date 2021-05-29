@@ -26,7 +26,7 @@ function calc_total(cart) {
     var total = 0;
     for (let i = 0; i < cart.length; i++) {
         var item = cart[i];
-        total += item.price;
+        total += item.price; // "item_price + total"
     }
     return total;
 }
@@ -53,5 +53,5 @@ function update_shipping_icons() {
 }
 
 function gets_free_shipping(total, item_price) {
-    return item_price + total >= 20;
+    return item_price + total >= 20; // "item_price + total"
 }
