@@ -18,7 +18,7 @@ function add_item(cart, name, price) {
 function calc_cart_total() {
     shopping_cart_total = calc_total(shopping_cart);
     set_cart_total_dom();
-    update_shipping_icons();
+    update_shipping_icons(shopping_cart);
     update_tax_dom();
 }
 
@@ -39,13 +39,13 @@ function calc_tax(amount) {
     return amount * 0.10;
 }
 
-function update_shipping_icons() {
+function update_shipping_icons(cart) {
     var buy_buttons = get_buy_buttons_dom();
     for (let i = 0; i < buy_buttons.length; i++) {
         var button = buy_buttons[i];
         var item = btnToItem(button);
 
-        var new_cart = add_item(shopping_cart, item.name, item.price); // !!
+        var new_cart = add_item(cart, item.name, item.price); // !!
 
         if (gets_free_shipping(new_cart)) {
             show_free_shipping_icon(button);
