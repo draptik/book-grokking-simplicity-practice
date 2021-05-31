@@ -30,10 +30,21 @@ function setPriceByName(cart, name, price) {
     return cartCopy;
 }
 
+function setQuantityByName(cart, name, quantity) {
+    var cartCopy = cart.slice();
+    for (let i = 0; i < cartCopy.length; i++) {
+        if (cartCopy[i].name === name) {
+            cartCopy[i] = setQuantity(cartCopy[i], quantity);
+        }
+    }
+    return cartCopy;
+}
+
 module.exports = {
     setPrice,
     objectSet,
     setQuantity,
     objectDelete,
-    setPriceByName
+    setPriceByName,
+    setQuantityByName
 }
