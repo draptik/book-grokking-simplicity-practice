@@ -7,9 +7,14 @@ function add_element_last(array, elem) {
     return new_array;
 }
 
+function removeItems(array, idx, count) {
+    var copy = array.slice();
+    copy.splice(idx, count);
+    return copy;
+}
+
 // Custom ----------------------------------------
 
-// dummy function to be called from html button...
 function delete_handler(name) {
     shopping_cart = remove_item_by_name(shopping_cart, name);
     var total = calc_total(shopping_cart);
@@ -19,18 +24,17 @@ function delete_handler(name) {
 }
 
 function remove_item_by_name(cart, name) {
-    var new_cart = cart.slice();
     var idx = null;
-    for (let i = 0; i < new_cart.length; i++) {
-        if (new_cart[i].name === name) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
             idx = i;
         }
     }
     if (idx !== null) {
-        new_cart.splice(idx, 1)
+        return removeItems(cart, idx, 1);
     }
 
-    return new_cart;
+    return cart;
 }
 
 function add_item_to_cart(name, price) {
