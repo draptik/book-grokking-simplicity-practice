@@ -51,14 +51,22 @@ function update_shipping_icons(cart) {
     for (let i = 0; i < buy_buttons.length; i++) {
         var button = buy_buttons[i];
         var item = btnToItem(button);
-
         var new_cart = add_item(cart, item);
+        var hasFreeShipping = gets_free_shipping(new_cart);
+        set_free_shipping_icon(button, hasFreeShipping)
+    }
+}
 
-        if (gets_free_shipping(new_cart)) {
-            show_free_shipping_icon(button);
-        } else {
-            hide_free_shipping_icon(button);
-        }
+function gets_free_shipping_with_item(cart, item) {
+    var new_cart = add_item(cart, item);
+    return gets_free_shipping(new_cart);
+}
+
+function set_free_shipping_icon(button, isShown) {
+    if (isShown) {
+        show_free_shipping_icon(button);
+    } else {
+        hide_free_shipping_icon(button);
     }
 }
 
