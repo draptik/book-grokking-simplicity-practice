@@ -1,5 +1,4 @@
 var shopping_cart = [];
-var shopping_cart_total = 0;
 
 function add_item_to_cart(name, price) {
     shopping_cart = add_item(shopping_cart, make_cart_item(name, price));
