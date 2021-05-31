@@ -14,8 +14,15 @@ function setQuantity(item, new_quantity) {
     return objectSet(item, "quantity", new_quantity);
 }
 
+function objectDelete(object, key) {
+    var copy = Object.assign({}, object);
+    delete copy[key];
+    return copy;
+}
+
 module.exports = {
     setPrice,
     objectSet,
-    setQuantity
+    setQuantity,
+    objectDelete
 }
