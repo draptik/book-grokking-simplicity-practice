@@ -10,7 +10,12 @@ function objectSet(object, key, value) {
     return copy;
 }
 
+function setQuantity(item, new_quantity) {
+    return objectSet(item, "quantity", new_quantity);
+}
+
 module.exports = {
     setPrice,
-    objectSet
+    objectSet,
+    setQuantity
 }

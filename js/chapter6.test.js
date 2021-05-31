@@ -1,4 +1,4 @@
-const { setPrice, objectSet } = require('./chapter6');
+const { setPrice, objectSet, setQuantity } = require('./chapter6');
 
 describe("setPrice", () => {
     test("works", () => {
@@ -16,5 +16,12 @@ describe("Exercises", () => {
         const new_value = 42;
         const result = objectSet(object, key, new_value);
         expect(result).toEqual({name: "a", price: new_value});
+    })
+
+    test("setQuantity", () => {
+        const item = { name: "a", price: 10 };
+        const new_quantity = 5;
+        const result = setQuantity(item, new_quantity);
+        expect(result).toEqual({name: "a", price: 10, quantity: 5});
     })
 })
