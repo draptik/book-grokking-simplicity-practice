@@ -8,6 +8,29 @@ function add_element_last(array, elem) {
 }
 
 // Custom ----------------------------------------
+
+// dummy function to be called from html button...
+function remove_item_from_cart(name) {
+    remove_item_by_name(shopping_cart, name); // <--
+
+    var total = calc_total(shopping_cart);
+    set_cart_total_dom(total);
+    update_shipping_icons(shopping_cart);
+    update_tax_dom(total);
+}
+
+function remove_item_by_name(cart, name) {
+    var idx = null;
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            idx = i;
+        }
+    }
+    if (idx !== null) {
+        cart.splice(idx, 1)
+    }
+}
+
 function add_item_to_cart(name, price) {
     var item = make_cart_item(name, price)
     shopping_cart = add_item(shopping_cart, item);
