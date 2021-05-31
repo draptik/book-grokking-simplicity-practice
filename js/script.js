@@ -1,5 +1,13 @@
 var shopping_cart = [];
 
+// General functions -----------------------------
+function add_element_last(array, elem) {
+    var new_array = array.slice();
+    new_array.push(elem);
+    return new_array;
+}
+
+// Custom ----------------------------------------
 function add_item_to_cart(name, price) {
     shopping_cart = add_item(shopping_cart, make_cart_item(name, price));
 
@@ -11,9 +19,7 @@ function add_item_to_cart(name, price) {
 }
 
 function add_item(cart, item) {
-    var new_cart = cart.slice();
-    new_cart.push(item);
-    return new_cart;
+    return add_element_last(cart, item);
 }
 
 function make_cart_item(name, price) {
