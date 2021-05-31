@@ -20,9 +20,19 @@ function objectDelete(object, key) {
     return copy;
 }
 
+function setPriceByName(cart, name, price) {
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            cart[i].price = price;
+        }
+    }
+    return cart;
+}
+
 module.exports = {
     setPrice,
     objectSet,
     setQuantity,
-    objectDelete
+    objectDelete,
+    setPriceByName
 }

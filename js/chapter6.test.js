@@ -2,7 +2,8 @@ const {
     setPrice, 
     objectSet, 
     setQuantity, 
-    objectDelete } = require('./chapter6');
+    objectDelete,
+    setPriceByName } = require('./chapter6');
 
 describe("setPrice", () => {
     test("works", () => {
@@ -34,5 +35,11 @@ describe("Exercises", () => {
         const keyToDelete = "price";
         const result = objectDelete(item, keyToDelete);
         expect(result).toEqual({name: "a"});
+    })
+
+    test("setPriceByName", () => {
+        const cart = [{name: "a", price: 1}, {name: "b", price: 2}];
+        const result = setPriceByName(cart, "a", 42);
+        expect(result).toEqual([{name: "a", price: 42}, {name: "b", price: 2}]);
     })
 })
