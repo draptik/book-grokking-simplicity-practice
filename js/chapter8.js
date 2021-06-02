@@ -1,3 +1,4 @@
+// Add item ------------------------------------------
 function add_element_last(array, elem) {
     var new_array = array.slice();
     new_array.push(elem);
@@ -34,6 +35,28 @@ function freeTieClip(cart) {
     return cart;
 }
 
+// Remove items --------------------------------------
+function removeItems(array, idx, count) {
+    var copy = array.slice();
+    copy.splice(idx, count);
+    return copy;
+}
+
+function remove_item_by_name(cart, name) {
+    var idx = null;
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+            idx = i;
+        }
+    }
+    if (idx !== null) {
+        return removeItems(cart, idx, 1);
+    }
+
+    return cart;
+}
+
 module.exports = {
-    freeTieClip
+    freeTieClip,
+    remove_item_by_name
 }

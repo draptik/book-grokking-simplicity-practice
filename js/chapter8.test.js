@@ -1,5 +1,6 @@
 const { 
-freeTieClip } = require('./chapter8');
+freeTieClip,
+remove_item_by_name } = require('./chapter8');
 
 describe("tie is in cart:", () => {
     
@@ -27,3 +28,12 @@ describe("no tie in cart:", () => {
         expect(result.length).toBe(1);
     });
 });
+
+describe("remove item by name", () => {
+    test("works", () => {
+        const cart = [{ name: "a", price: 1 }, { name: "b", price: 2 }];
+        const result = remove_item_by_name(cart, "a");
+        expect(result.length).toBe(1);
+        expect(result[0].name).toBe("b");
+    })
+})
