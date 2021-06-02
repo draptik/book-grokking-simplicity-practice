@@ -42,13 +42,17 @@ function removeItems(array, idx, count) {
     return copy;
 }
 
-function remove_item_by_name(cart, name) {
-    var idx = null;
+function indexOfItem(cart, name) {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].name === name) {
-            idx = i;
+            return i;
         }
     }
+    return null;
+}
+
+function remove_item_by_name(cart, name) {
+    var idx = indexOfItem(cart, name);
     if (idx !== null) {
         return removeItems(cart, idx, 1);
     }
