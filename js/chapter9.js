@@ -8,11 +8,11 @@ function objectSet(object, key, value) {
 }
 
 // array --------------
-function arraySet(array, idx, value) {
-    var copy = array.slice();
-    copy[idx] = value;
-    return copy;
-}
+// function arraySet(array, idx, value) {
+//     var copy = array.slice();
+//     copy[idx] = value;
+//     return copy;
+// }
 
 function arrayGet(array, idx) {
     return array[idx];
@@ -31,7 +31,6 @@ function indexOfItem(cart, name) {
 function add_item(cart, item) {
     return objectSet(cart, item.name, item.price);
 }
-
 
 // Calc total ----------------------------------------
 function calc_total(cart) {
@@ -67,13 +66,26 @@ function setPrice(item, new_price) {
     return item_copy;
 }
 
-function setPriceByName(cart, name, price) {
-    var i = indexOfItem(cart, name);
-    if (i !== null) {
-        var item = arrayGet(cart, i);
-        return arraySet(cart, i, setPrice(item, price));
+function isInCart(cart, name) {
+    return cart.hasOwnProperty(name);
+}
+
+function make_item(name, price) {
+    return {
+        name: name,
+        price: price
     }
-    return cart;
+}
+
+function setPriceByName(cart, name, price) {
+    if (isInCart(cart, name)) {
+        var item = cart[name];
+        var copy = setPrice(item, price);
+        return objectSet(cart, name, copy.price);
+    } else {
+        var item = make_item(name, price);
+        return objectSet(cart, name, item.price);
+    }
 }
 
 module.exports = {
