@@ -55,7 +55,27 @@ function remove_item_by_name(cart, name) {
     return cart;
 }
 
+// Set price by name ---------------------------------
+function setPrice(item, new_price) {
+    var item_copy = Object.assign({}, item);
+    item_copy.price = new_price;
+    return item_copy;
+}
+
+function setPriceByName(cart, name, price) {
+    var cartCopy = cart.slice();
+    for (let i = 0; i < cartCopy.length; i++) {
+        if (cartCopy[i].name === name) {
+            cartCopy[i] = setPrice(cartCopy[i], price);
+        }
+    }
+    return cartCopy;
+}
+
+
+
 module.exports = {
     freeTieClip,
-    remove_item_by_name
+    remove_item_by_name,
+    setPriceByName
 }
