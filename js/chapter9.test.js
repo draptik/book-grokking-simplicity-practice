@@ -22,10 +22,11 @@ describe("calc total", () => {
 
 describe("remove item by name", () => {
     test("works", () => {
-        // const cart = [{ name: "a", price: 1 }, { name: "b", price: 2 }];
-        // const result = remove_item_by_name(cart, "a");
-        // expect(result.length).toBe(1);
-        // expect(result[0].name).toBe("b");
+        const cart = { "a": 1, "b": 2 };
+        const result = remove_item_by_name(cart, "a");
+        expect(result.hasOwnProperty("a")).toBe(false);
+        expect(result.hasOwnProperty("b")).toBe(true);
+        expect(result["b"]).toBe(2);
     })
 })
 
@@ -35,7 +36,7 @@ describe("set price by name", () => {
         const result = setPriceByName(cart, "a", 42);
         expect(result["a"]).toBe(42);
     })
-    
+
     test("creates new item in case the item does not exist yet", () => {
         const cart = { "a": 1, "b": 2 };
         const result = setPriceByName(cart, "c", 42);

@@ -14,18 +14,18 @@ function objectSet(object, key, value) {
 //     return copy;
 // }
 
-function arrayGet(array, idx) {
-    return array[idx];
-}
+// function arrayGet(array, idx) {
+//     return array[idx];
+// }
 
-function indexOfItem(cart, name) {
-    for (let i = 0; i < cart.length; i++) {
-        if (arrayGet(cart, i).name === name) {
-            return i;
-        }
-    }
-    return null;
-}
+// function indexOfItem(cart, name) {
+//     for (let i = 0; i < cart.length; i++) {
+//         if (arrayGet(cart, i).name === name) {
+//             return i;
+//         }
+//     }
+//     return null;
+// }
 
 // Add item ------------------------------------------
 function add_item(cart, item) {
@@ -44,19 +44,20 @@ function calc_total(cart) {
 }
 
 // Remove items --------------------------------------
-function removeItems(array, idx, count) {
-    var copy = array.slice();
-    copy.splice(idx, count);
+// function removeItems(array, idx, count) {
+//     var copy = array.slice();
+//     copy.splice(idx, count);
+//     return copy;
+// }
+
+function objectDelete(object, key) {
+    var copy = Object.assign({}, object);
+    delete copy[key];
     return copy;
 }
 
 function remove_item_by_name(cart, name) {
-    var idx = indexOfItem(cart, name);
-    if (idx !== null) {
-        return removeItems(cart, idx, 1);
-    }
-
-    return cart;
+    return objectDelete(cart, name);
 }
 
 // Set price by name ---------------------------------
