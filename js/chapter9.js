@@ -1,31 +1,9 @@
 // low level function ---------------------------------
-
-// object --------------
 function objectSet(object, key, value) {
     var copy = Object.assign({}, object);
     copy[key] = value;
     return copy;
 }
-
-// array --------------
-// function arraySet(array, idx, value) {
-//     var copy = array.slice();
-//     copy[idx] = value;
-//     return copy;
-// }
-
-// function arrayGet(array, idx) {
-//     return array[idx];
-// }
-
-// function indexOfItem(cart, name) {
-//     for (let i = 0; i < cart.length; i++) {
-//         if (arrayGet(cart, i).name === name) {
-//             return i;
-//         }
-//     }
-//     return null;
-// }
 
 // Add item ------------------------------------------
 function add_item(cart, item) {
@@ -44,12 +22,6 @@ function calc_total(cart) {
 }
 
 // Remove items --------------------------------------
-// function removeItems(array, idx, count) {
-//     var copy = array.slice();
-//     copy.splice(idx, count);
-//     return copy;
-// }
-
 function objectDelete(object, key) {
     var copy = Object.assign({}, object);
     delete copy[key];
