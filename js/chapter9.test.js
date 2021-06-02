@@ -1,6 +1,5 @@
 const {
     add_item, 
-    calc_total_original,
     calc_total,
     remove_item_by_name,
     setPriceByName } = require('./chapter9');
@@ -14,12 +13,6 @@ describe("add item", () => {
     })
 })
 describe("calc total", () => {
-    test("original implementation works", () => {
-        const cart = [{ name: "a", price: 1 }, { name: "b", price: 2 }];
-        const result = calc_total_original(cart);
-        expect(result).toBe(3);
-    })
-    
     test("new implementation works", () => {
         const cart = { "a": 1, "b": 2 };
         const result = calc_total(cart);
