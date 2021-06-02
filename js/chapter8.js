@@ -39,7 +39,7 @@ function removeItems(array, idx, count) {
 
 function indexOfItem(cart, name) {
     for (let i = 0; i < cart.length; i++) {
-        if (cart[i].name === name) {
+        if (arrayGet(cart, i).name === name) {
             return i;
         }
     }
@@ -68,10 +68,15 @@ function arraySet(array, idx, value) {
     return copy;
 }
 
+function arrayGet(array, idx) {
+    return array[idx];
+}
+
 function setPriceByName(cart, name, price) {
     var i = indexOfItem(cart, name);
     if (i !== null) {
-        return arraySet(cart, i, setPrice(cart[i], price));
+        var item = arrayGet(cart, i);
+        return arraySet(cart, i, setPrice(item, price));
     }
     return cart;
 }
