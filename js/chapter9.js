@@ -32,6 +32,27 @@ function add_item(cart, item) {
     return objectSet(cart, item.name, item.price);
 }
 
+
+// Calc total ----------------------------------------
+function calc_total_original(cart) {
+    var total = 0;
+    for (let i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        total += item.price;
+    }
+    return total;
+}
+
+function calc_total(cart) {
+    var total = 0;
+    var names = Object.keys(cart);
+    for (let i = 0; i < names.length; i++) {
+        var item = cart[names[i]];
+        total += item;
+    }
+    return total;
+}
+
 // Remove items --------------------------------------
 function removeItems(array, idx, count) {
     var copy = array.slice();
@@ -66,6 +87,8 @@ function setPriceByName(cart, name, price) {
 
 module.exports = {
     add_item,
+    calc_total_original,
+    calc_total,
     remove_item_by_name,
     setPriceByName
 }
