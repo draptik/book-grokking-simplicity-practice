@@ -28,25 +28,8 @@ function indexOfItem(cart, name) {
 }
 
 // Add item ------------------------------------------
-function add_element_last(array, elem) {
-    var new_array = array.slice();
-    new_array.push(elem);
-    return new_array;
-}
-
 function add_item(cart, item) {
-    return add_element_last(cart, item);
-}
-
-function make_item(name, price) {
-    return {
-        name: name,
-        price: price
-    }
-}
-
-function isInCart(cart, name) {
-    return indexOfItem(cart, name) !== null;
+    return objectSet(cart, item.name, item.price);
 }
 
 // Remove items --------------------------------------
