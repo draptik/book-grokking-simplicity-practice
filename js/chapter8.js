@@ -62,13 +62,18 @@ function setPrice(item, new_price) {
     return item_copy;
 }
 
+function arraySet(array, idx, value) {
+    var copy = array.slice();
+    copy[idx] = value;
+    return copy;
+}
+
 function setPriceByName(cart, name, price) {
-    var cartCopy = cart.slice();
     var i = indexOfItem(cart, name);
     if (i !== null) {
-        cartCopy[i] = setPrice(cartCopy[i], price);
+        return arraySet(cart, i, setPrice(cart[i], price));
     }
-    return cartCopy;
+    return cart;
 }
 
 
